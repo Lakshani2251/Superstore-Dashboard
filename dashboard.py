@@ -366,7 +366,7 @@ st.markdown("---")
 
 def send_email(name, sender_email, message):
     receiver_email = "lakshanirathnasiri0501@gmail.com"   # your email
-    app_password = "sihf oils fktk qtug"         # Gmail app password
+    app_password = st.secrets["EMAIL_PASSWORD"]
 
     body = f"""
     Name: {name}
@@ -405,4 +405,5 @@ if submit:
 #Footer
 st.markdown("---")
 st.caption("© 2025 Lakshani Rathnasiri | Built with Python & Streamlit")
+
 
