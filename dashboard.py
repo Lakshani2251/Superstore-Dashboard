@@ -34,23 +34,14 @@ st.title(" :bar_chart: Sample Superstore EDA")
 
 
 #File uploader
-fl = st.fl = st.file_uploader("📂 Upload a file", type=["csv", "txt", "xlsx", "xls"])
+uploaded_file = st.file_uploader("📂 Upload a file", type=["csv", "txt", "xlsx", "xls"])
 
-if fl is not None:
-    st.write("Uploaded file:", fl.name)
-
-    if fl.name.endswith(".csv") or fl.name.endswith(".txt"):
-        df = pd.read_csv(fl, encoding="ISO-8859-1")
-
-    elif fl.name.endswith(".xlsx") or fl.name.endswith(".xls"):
-        df = pd.read_excel(fl)
-
+if uploaded_file is not None:
+    df = pd.read_csv(uploaded_file, encoding="ISO-8859-1")
+    st.success("CSV Loaded Successfully")
+    st.dataframe(df.head())
 else:
-    try:
-        df = pd.read_csv("Superstore.csv", encoding="ISO-8859-1")
-    except FileNotFoundError:
-        st.error("❌ Superstore.csv not found. Please upload a file.")
-        st.stop()
+    st.info("Please upload the CSV file")
 
 
 st.write("")
@@ -416,6 +407,7 @@ if submit:
 #Footer
 st.markdown("---")
 st.caption("© 2025 Lakshani Rathnasiri | Built with Python & Streamlit")
+
 
 
 
