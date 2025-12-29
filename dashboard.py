@@ -40,7 +40,6 @@ if fl is not None:
     st.write(filename)
     df = pd.read_csv(filename,encoding = "ISO-8859-1")
 else:
-    os.chdir(r"D:\\Projects")
     df = pd.read_csv("Superstore.csv",encoding = "ISO-8859-1")
 
 st.write("")
@@ -406,3 +405,4 @@ if submit:
 #Footer
 st.markdown("---")
 st.caption("© 2025 Lakshani Rathnasiri | Built with Python & Streamlit")
+
