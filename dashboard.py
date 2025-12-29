@@ -46,7 +46,11 @@ if fl is not None:
         df = pd.read_excel(fl)
 
 else:
-    df = pd.read_csv("Superstore.csv", encoding="ISO-8859-1")
+    try:
+        df = pd.read_csv("Superstore.csv", encoding="ISO-8859-1")
+    except FileNotFoundError:
+        st.error("❌ Superstore.csv not found. Please upload a file.")
+        st.stop()
 
 
 st.write("")
@@ -412,6 +416,7 @@ if submit:
 #Footer
 st.markdown("---")
 st.caption("© 2025 Lakshani Rathnasiri | Built with Python & Streamlit")
+
 
 
 
