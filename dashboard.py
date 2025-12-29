@@ -40,7 +40,11 @@ if fl is not None:
     st.write(filename)
     df = pd.read_csv(filename,encoding = "ISO-8859-1")
 else:
-    df = pd.read_csv("Superstore.csv",encoding = "ISO-8859-1")
+     try:
+        df = pd.read_csv("Superstore.csv",encoding = "ISO-8859-1")
+     except FileNotFoundError:
+        st.error("❌ Superstore.csv not found. Please upload the file.")
+        st.stop()
 
 st.write("")
 
@@ -405,5 +409,6 @@ if submit:
 #Footer
 st.markdown("---")
 st.caption("© 2025 Lakshani Rathnasiri | Built with Python & Streamlit")
+
 
 
