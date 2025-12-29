@@ -34,12 +34,12 @@ st.title(" :bar_chart: Sample Superstore EDA")
 
 
 #File uploader
-uploaded_file = st.file_uploader("📂 Upload a file", type="csv")
+#uploaded_file = st.file_uploader("📂 Upload a file", type="csv")
 
-if uploaded_file is None:
-    st.stop()
+#if uploaded_file is None:
+#    st.stop()
 
-df = pd.read_csv(uploaded_file, encoding="ISO-8859-1")
+df = pd.read_csv("SampleSuperstore.csv", encoding="ISO-8859-1")
 df["Order Date"] = pd.to_datetime(df["Order Date"])
 
 
@@ -406,6 +406,7 @@ if submit:
 #Footer
 st.markdown("---")
 st.caption("© 2025 Lakshani Rathnasiri | Built with Python & Streamlit")
+
 
 
 
